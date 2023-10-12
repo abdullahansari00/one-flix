@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    container_name: one_flix_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_one_flix_v1:/var/lib/postgresql/data
+    env_file:
+      - ./dev.env
+    networks: 
+      - db_network
+
+  pgadmin:
+    image: dpage/pgadmin4:6.7
+    container_name: one_flix_admin
+    links:
+      - db
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: one_flix
+    ports:
+      - "80:80"
+    volumes:
+      - pg_admin_one_flix_v1:/var/lib/pgadmin
+    networks: 
+      - db_network
+
+  redis:
+    image: redis:latest
+    container_name: one_flix_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_one_flix_v1:/data
+    restart: always
+    networks:
+      - redis_network
+
+networks:
+  db_network:
+    driver: bridge
+  redis_network:
+    driver: bridge
+
+volumes:
+  db_one_flix_v1:
+  pg_admin_one_flix_v1:
+  redis_one_flix_v1:

@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "41687859-00db-4719-ac3d-4a75d398fd2e",
+		"name": "OneFlix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"test\",\n    \"password\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/core/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"core",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"test2\",\n    \"password\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/core/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"core",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movies List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3NzA1NTkwLCJqdGkiOiIyZDFlODc0ZDUyNmQ0NjgwOWFjYzQ5ZGZmNDE5ODQwZCIsInVzZXJfaWQiOjEyfQ.a1kkwpLACutxtPam0qSNadKvsl-CPf-NTjN6Fr84yp8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"https://demo.credy.in/api/v1/maya/movies/?page=3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/movies/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"movies",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upsert Collection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3NzA1NTkwLCJqdGkiOiIyZDFlODc0ZDUyNmQ0NjgwOWFjYzQ5ZGZmNDE5ODQwZCIsInVzZXJfaWQiOjEyfQ.a1kkwpLACutxtPam0qSNadKvsl-CPf-NTjN6Fr84yp8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Test1\",\n    \"description\": \"\",\n    \"movies\": [\n        {\n            \"uuid\": \"a1bd0833-7697-4d80-bdd4-84c1538e05e3\"\n        },\n        {\n            \"uuid\": \"259c2959-63c5-478b-b2bd-d08f72e4a0ec\",\n            \"title\": \"HIMYM\",\n            \"description\": \"The best show in the world\",\n            \"genres\": \"Comedy, Drama\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/collection/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"collection",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Collections and Favorite Genres",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3NzA1NTkwLCJqdGkiOiIyZDFlODc0ZDUyNmQ0NjgwOWFjYzQ5ZGZmNDE5ODQwZCIsInVzZXJfaWQiOjEyfQ.a1kkwpLACutxtPam0qSNadKvsl-CPf-NTjN6Fr84yp8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/collection/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"collection",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Collection Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3NzA1NTkwLCJqdGkiOiIyZDFlODc0ZDUyNmQ0NjgwOWFjYzQ5ZGZmNDE5ODQwZCIsInVzZXJfaWQiOjEyfQ.a1kkwpLACutxtPam0qSNadKvsl-CPf-NTjN6Fr84yp8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/collection/2e869019-f16a-4c71-9c1b-2cc24c44dfae/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"collection",
+						"2e869019-f16a-4c71-9c1b-2cc24c44dfae",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Collection",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3NzA1NTkwLCJqdGkiOiIyZDFlODc0ZDUyNmQ0NjgwOWFjYzQ5ZGZmNDE5ODQwZCIsInVzZXJfaWQiOjEyfQ.a1kkwpLACutxtPam0qSNadKvsl-CPf-NTjN6Fr84yp8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uuid\": \"2e869019-f16a-4c71-9c1b-2cc24c44dfae\",\n    \"title\": \"Test1\",\n    \"description\": \"\",\n    \"movies\": [\n        {\n            \"uuid\": \"a1bd0833-7697-4d80-bdd4-84c1538e05e3\",\n            \"title\": \"The Final Storm\",\n            \"description\": \"A stranger named Silas flees from a devastating storm and finds refuge with Tom and Gillian on their farm. While struggling with the Storm, Silas seems to be the only one who can help Tom and Gillian to find their son but there are other more dangerous forces out there, that are waiting for the three.\",\n            \"genres\": \"Action,Mystery,Thriller,Horror\"\n        },\n        {\n            \"uuid\": \"259c2959-63c5-478b-b2bd-d08f72e4a0ec\",\n            \"title\": \"HIMYM\",\n            \"description\": \"The best show in the world\",\n            \"genres\": \"Comedy, Drama\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/collection/2e869019-f16a-4c71-9c1b-2cc24c44dfae/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"collection",
+						"2e869019-f16a-4c71-9c1b-2cc24c44dfae",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Collection",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3NzA1NTkwLCJqdGkiOiIyZDFlODc0ZDUyNmQ0NjgwOWFjYzQ5ZGZmNDE5ODQwZCIsInVzZXJfaWQiOjEyfQ.a1kkwpLACutxtPam0qSNadKvsl-CPf-NTjN6Fr84yp8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/collection/56dff17c-851a-4891-9b0c-293cfcd11ed5/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"collection",
+						"56dff17c-851a-4891-9b0c-293cfcd11ed5",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Requests Counts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3NzA1NTkwLCJqdGkiOiIyZDFlODc0ZDUyNmQ0NjgwOWFjYzQ5ZGZmNDE5ODQwZCIsInVzZXJfaWQiOjEyfQ.a1kkwpLACutxtPam0qSNadKvsl-CPf-NTjN6Fr84yp8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"exclude\": {\n        \"url__contains\": \"admin/\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/core/request-count/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"core",
+						"request-count",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Requests Counts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3NzA1NTkwLCJqdGkiOiIyZDFlODc0ZDUyNmQ0NjgwOWFjYzQ5ZGZmNDE5ODQwZCIsInVzZXJfaWQiOjEyfQ.a1kkwpLACutxtPam0qSNadKvsl-CPf-NTjN6Fr84yp8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"filter\": {\n        \"url__contains\": \"login/\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/core/request-count/reset/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"core",
+						"request-count",
+						"reset",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
